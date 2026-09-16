@@ -98,47 +98,6 @@
 </head>
 <body class="text-slate-800 antialiased flex flex-col min-h-screen polka-bg selection:bg-amber-200 selection:text-amber-900">
 
-  <!-- ==================== HEADER (NAVEGAÇÃO) ==================== -->
-  <header class="bg-white/90 backdrop-blur-md sticky top-0 z-40 border-b-2 border-orange-200/80 shadow-sm">
-    <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
-      
-      <!-- Logo Principal -->
-      <a href="#" onclick="showPage('home')" class="flex items-center gap-3 group">
-        <div class="w-11 h-11 bg-amber-100 rounded-2xl border-2 border-orange-300 flex items-center justify-center text-2xl shadow-sm group-hover:rotate-12 transition duration-300">
-          🧸
-        </div>
-        <div>
-          <span class="font-heading font-bold text-lg md:text-xl text-brand-title block leading-tight">Cuidando do Ursinho</span>
-          <span class="text-[10px] md:text-xs font-bold text-brand-orange tracking-wider uppercase bg-orange-100 px-2 py-0.5 rounded-full inline-block">UFV & Univiçosa • 10 Anos</span>
-        </div>
-      </a>
-      
-      <!-- Navegação Desktop -->
-      <nav class="hidden lg:flex items-center gap-2 font-heading font-bold text-sm text-amber-900">
-        <button onclick="showPage('home')" class="px-3 py-1.5 rounded-xl hover:bg-orange-100 hover:text-brand-orange transition"> Início</button>
-        <button onclick="showPage('historia')" class="px-3 py-1.5 rounded-xl hover:bg-orange-100 hover:text-brand-orange transition"> História</button>
-        <button onclick="showPage('programacao')" class="px-3 py-1.5 rounded-xl hover:bg-orange-100 hover:text-brand-orange transition"> Programação & FAQ</button>
-        <button onclick="showPage('galeria')" class="px-3 py-1.5 rounded-xl hover:bg-orange-100 hover:text-brand-orange transition"> Galeria</button>
-        <button onclick="showPage('instagram')" class="px-3 py-1.5 rounded-xl hover:bg-pink-100 text-pink-600 transition flex items-center gap-1">📸 Feed Instagram</button>
-        <button onclick="showPage('ingressos')" class="ml-2 bg-brand-orange hover:bg-brand-orange-dark text-white px-5 py-2 rounded-2xl font-heading text-base shadow-md hover:shadow-orange-200 transition transform hover:-translate-y-0.5 flex items-center gap-1">
-           Ingressos
-        </button>
-      </nav>
-
-      <!-- Botão Hambúrguer para Celular -->
-      <div class="lg:hidden flex items-center gap-2">
-        <button onclick="showPage('ingressos')" class="bg-brand-orange text-white text-xs font-bold px-3 py-2 rounded-xl font-heading shadow-sm">
-          Ingressos 
-        </button>
-        <button onclick="toggleMobileMenu()" class="p-2 bg-amber-100 border-2 border-orange-200 text-brand-title rounded-xl focus:outline-none">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16M4 18h16"/>
-          </svg>
-        </button>
-      </div>
-    </div>
-  </header>
-
 <!-- ==================== HEADER RESPONSIVO ==================== -->
   <header class="bg-white/95 backdrop-blur-md sticky top-0 z-40 border-b-2 border-orange-200/80 shadow-sm">
     <div class="max-w-6xl mx-auto px-3 sm:px-4 py-2.5 flex justify-between items-center gap-2">
