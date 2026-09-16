@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Projeto Cuidando do Ursinho - 10 Anos</title>
-  <!-- Google Fonts -->
+  <!-- Google Fonts: Fredoka e Nunito -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -18,15 +18,18 @@
             brand: {
               orange: '#F97316',
               'orange-dark': '#EA580C',
+              yellow: '#FBBF24',
+              pink: '#F472B6',
+              sky: '#38BDF8',
               cream: '#FEF3C7',
-              bg: '#FFFBEB',
+              bg: '#FFFDF5',
               text: '#78350F',
               title: '#C2410C',
               brown: '#9A3412',
             }
           },
           fontFamily: {
-            fredoka: ['Fredoka', 'sans-serif'],
+            fredoka: ['Fredoka', 'cursive', 'sans-serif'],
             nunito: ['Nunito', 'sans-serif'],
           }
         }
@@ -34,380 +37,584 @@
     }
   </script>
   <style>
-    /* Fundo personalizado com padrão de listras e formas sutis */
     body {
       font-family: 'Nunito', sans-serif;
-      background-color: #FFFBEB;
-      background-image: 
-        radial-gradient(#fde68a 1px, transparent 1px), 
-        linear-gradient(to right, rgba(254, 243, 199, 0.4) 1px, transparent 1px);
-      background-size: 24px 24px, 40px 40px;
+      background-color: #FFFDF5;
     }
-    h1, h2, h3, .font-heading {
-      font-family: 'Fredoka', sans-serif;
+    h1, h2, h3, h4, .font-heading {
+      font-family: 'Fredoka', cursive, sans-serif;
     }
-    /* Estilo para fundo com nuvens sutis */
-    .bg-cloud-pattern {
-      background-image: radial-gradient(circle at 50% 50%, rgba(253, 230, 138, 0.25) 0%, transparent 60%);
+
+    @keyframes floatSoft {
+      0%, 100% { transform: translateY(0px) rotate(-3deg); }
+      50% { transform: translateY(-10px) rotate(2deg); }
+    }
+    @keyframes wiggle {
+      0%, 100% { transform: rotate(-5deg); }
+      50% { transform: rotate(5deg); }
+    }
+
+    .animate-float-card {
+      animation: floatSoft 5s ease-in-out infinite;
+    }
+    .animate-wiggle {
+      animation: wiggle 2.5s ease-in-out infinite;
+    }
+
+    .tape-effect {
+      position: relative;
+    }
+    .tape-effect::before {
+      content: '';
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%) rotate(-2deg);
+      width: 100px;
+      height: 26px;
+      background-color: rgba(251, 191, 36, 0.85);
+      border-radius: 3px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.06);
+      z-index: 20;
+    }
+
+    .polka-bg {
+      background-image: radial-gradient(#FDBA74 1.2px, transparent 1.2px), radial-gradient(#FDE047 1.2px, #FFFDF5 1.2px);
+      background-size: 40px 40px;
+      background-position: 0 0, 20px 20px;
+    }
+
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #FEF3C7;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #F97316;
+      border-radius: 20px;
     }
   </style>
 </head>
-<body class="text-slate-800 antialiased flex flex-col min-h-screen relative overflow-x-hidden">
+<body class="text-slate-800 antialiased flex flex-col min-h-screen polka-bg selection:bg-amber-200 selection:text-amber-900">
 
-  <!-- Detalhes Visuais no Fundo (Nuvens/Gradientes Suaves) -->
-  <div class="absolute top-0 left-1/4 w-96 h-96 bg-amber-200/30 rounded-full blur-3xl pointer-events-none -z-10"></div>
-  <div class="absolute top-1/3 right-10 w-80 h-80 bg-orange-200/20 rounded-full blur-3xl pointer-events-none -z-10"></div>
-
-  <!-- Header com Gaveta Mobile (Off-Canvas) -->
-  <header class="bg-white/90 backdrop-blur-md sticky top-0 z-40 border-b border-orange-100/80 shadow-sm">
-    <div class="max-w-6xl mx-auto px-4 py-3.5 flex justify-between items-center">
+  <!-- ==================== HEADER (NAVEGAÇÃO) ==================== -->
+  <header class="bg-white/90 backdrop-blur-md sticky top-0 z-40 border-b-2 border-orange-200/80 shadow-sm">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
       
-      <!-- Logo -->
+      <!-- Logo Principal -->
       <a href="#" onclick="showPage('home')" class="flex items-center gap-3 group">
-        <div class="w-10 h-10 bg-gradient-to-br from-orange-100 to-amber-200 rounded-2xl flex items-center justify-center text-xl shadow-inner border border-orange-200/50">
+        <div class="w-11 h-11 bg-amber-100 rounded-2xl border-2 border-orange-300 flex items-center justify-center text-2xl shadow-sm group-hover:rotate-12 transition duration-300">
           🧸
         </div>
         <div>
-          <span class="font-heading font-bold text-base md:text-lg text-brand-title block leading-none">Cuidando do Ursinho</span>
-          <span class="text-[10px] md:text-xs font-bold text-brand-orange tracking-wider uppercase">UFV & Univiçosa • 10 Anos</span>
+          <span class="font-heading font-bold text-lg md:text-xl text-brand-title block leading-tight">Cuidando do Ursinho</span>
+          <span class="text-[10px] md:text-xs font-bold text-brand-orange tracking-wider uppercase bg-orange-100 px-2 py-0.5 rounded-full inline-block">UFV & Univiçosa • 10 Anos</span>
         </div>
       </a>
       
       <!-- Navegação Desktop -->
-      <nav class="hidden md:flex items-center gap-6 font-bold text-sm text-amber-900/90">
-        <button onclick="showPage('home')" class="hover:text-brand-orange transition py-1">Início</button>
-        <button onclick="showPage('historia')" class="hover:text-brand-orange transition py-1">Nossa História</button>
-        <button onclick="showPage('programacao')" class="hover:text-brand-orange transition py-1">Programação & FAQ</button>
-        <button onclick="showPage('galeria')" class="hover:text-brand-orange transition py-1">Galeria & Instagram</button>
-        <button onclick="showPage('ingressos')" class="bg-brand-orange hover:bg-brand-orange-dark text-white px-5 py-2.5 rounded-2xl font-heading text-sm shadow-sm transition transform hover:-translate-y-0.5">
-          Garantir Ingresso
+      <nav class="hidden lg:flex items-center gap-2 font-heading font-bold text-sm text-amber-900">
+        <button onclick="showPage('home')" class="px-3 py-1.5 rounded-xl hover:bg-orange-100 hover:text-brand-orange transition">🏠 Início</button>
+        <button onclick="showPage('historia')" class="px-3 py-1.5 rounded-xl hover:bg-orange-100 hover:text-brand-orange transition">📖 História</button>
+        <button onclick="showPage('programacao')" class="px-3 py-1.5 rounded-xl hover:bg-orange-100 hover:text-brand-orange transition">📅 Programação & FAQ</button>
+        <button onclick="showPage('galeria')" class="px-3 py-1.5 rounded-xl hover:bg-orange-100 hover:text-brand-orange transition">🖼️ Galeria</button>
+        <button onclick="showPage('instagram')" class="px-3 py-1.5 rounded-xl hover:bg-pink-100 text-pink-600 transition flex items-center gap-1">📸 Feed Instagram</button>
+        <button onclick="showPage('ingressos')" class="ml-2 bg-brand-orange hover:bg-brand-orange-dark text-white px-5 py-2 rounded-2xl font-heading text-base shadow-md hover:shadow-orange-200 transition transform hover:-translate-y-0.5 flex items-center gap-1">
+          🎟️ Ingressos
         </button>
       </nav>
 
-      <!-- Botão Hambúrguer Mobile -->
-      <button onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-xl bg-amber-100/80 text-brand-title focus:outline-none">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-        </svg>
-      </button>
+      <!-- Botão Hambúrguer para Celular -->
+      <div class="lg:hidden flex items-center gap-2">
+        <button onclick="showPage('ingressos')" class="bg-brand-orange text-white text-xs font-bold px-3 py-2 rounded-xl font-heading shadow-sm">
+          Ingressos 🎟️
+        </button>
+        <button onclick="toggleMobileMenu()" class="p-2 bg-amber-100 border-2 border-orange-200 text-brand-title rounded-xl focus:outline-none">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
     </div>
   </header>
 
-  <!-- Menu Lateral Mobile (Off-Canvas Sidebar) -->
-  <div id="mobile-overlay" onclick="toggleMobileMenu()" class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-50 hidden transition-opacity"></div>
-  <aside id="mobile-sidebar" class="fixed top-0 right-0 w-72 h-full bg-amber-50 z-50 shadow-2xl transform translate-x-full transition-transform duration-300 ease-in-out p-6 flex flex-col justify-between border-l border-orange-200">
-    <div>
-      <div class="flex justify-between items-center mb-8 border-b border-orange-200/60 pb-4">
-        <div class="flex items-center gap-2">
-          <span class="text-2xl">🧸</span>
-          <span class="font-heading font-bold text-brand-title text-base">Menu Principal</span>
-        </div>
-        <button onclick="toggleMobileMenu()" class="text-amber-900 font-bold p-1 hover:text-brand-orange text-lg">✕</button>
+  <!-- ==================== MENU SIDEBAR MOBILE (LATERIAL) ==================== -->
+  <div id="mobile-sidebar-backdrop" onclick="toggleMobileMenu()" class="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 hidden transition-opacity duration-300"></div>
+  
+  <aside id="mobile-sidebar" class="fixed top-0 right-0 w-72 h-full bg-white z-50 shadow-2xl transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col border-l-4 border-orange-300">
+    <div class="p-5 border-b border-orange-100 flex justify-between items-center bg-amber-50">
+      <div class="flex items-center gap-2">
+        <span class="text-2xl">🧸</span>
+        <span class="font-heading font-bold text-brand-title text-base">Menu do Ursinho</span>
       </div>
-
-      <nav class="space-y-4 font-heading font-bold text-amber-950">
-        <button onclick="navigateAndClose('home')" class="w-full text-left py-2 px-3 rounded-xl hover:bg-orange-100/80 transition flex items-center gap-2">
-          <span>🏠</span> Início
-        </button>
-        <button onclick="navigateAndClose('historia')" class="w-full text-left py-2 px-3 rounded-xl hover:bg-orange-100/80 transition flex items-center gap-2">
-          <span>📖</span> Nossa História
-        </button>
-        <button onclick="navigateAndClose('programacao')" class="w-full text-left py-2 px-3 rounded-xl hover:bg-orange-100/80 transition flex items-center gap-2">
-          <span>📅</span> Programação & FAQ
-        </button>
-        <button onclick="navigateAndClose('galeria')" class="w-full text-left py-2 px-3 rounded-xl hover:bg-orange-100/80 transition flex items-center gap-2">
-          <span>📸</span> Galeria & Instagram
-        </button>
-      </nav>
+      <button onclick="toggleMobileMenu()" class="text-slate-400 hover:text-slate-600 font-bold text-2xl p-1">&times;</button>
     </div>
 
-    <div class="pt-6 border-t border-orange-200/60">
-      <button onclick="navigateAndClose('ingressos')" class="w-full bg-brand-orange hover:bg-brand-orange-dark text-white font-heading font-bold py-3.5 rounded-xl shadow-md text-center">
-        Garantir Ingresso
+    <nav class="flex-1 px-4 py-6 space-y-2 font-heading font-bold text-amber-900 overflow-y-auto">
+      <button onclick="showPage('home'); toggleMobileMenu()" class="w-full text-left px-4 py-3 rounded-2xl hover:bg-orange-100 flex items-center gap-3">
+        <span class="text-xl">🏠</span> Início
       </button>
+      <button onclick="showPage('historia'); toggleMobileMenu()" class="w-full text-left px-4 py-3 rounded-2xl hover:bg-orange-100 flex items-center gap-3">
+        <span class="text-xl">📖</span> Nossa História
+      </button>
+      <button onclick="showPage('programacao'); toggleMobileMenu()" class="w-full text-left px-4 py-3 rounded-2xl hover:bg-orange-100 flex items-center gap-3">
+        <span class="text-xl">📅</span> Programação & FAQ
+      </button>
+      <button onclick="showPage('galeria'); toggleMobileMenu()" class="w-full text-left px-4 py-3 rounded-2xl hover:bg-orange-100 flex items-center gap-3">
+        <span class="text-xl">🖼️</span> Galeria de Fotos
+      </button>
+      <button onclick="showPage('instagram'); toggleMobileMenu()" class="w-full text-left px-4 py-3 rounded-2xl hover:bg-pink-100 text-pink-600 flex items-center gap-3">
+        <span class="text-xl">📸</span> Feed do Instagram
+      </button>
+      <button onclick="showPage('ingressos'); toggleMobileMenu()" class="w-full text-left px-4 py-3.5 rounded-2xl bg-brand-orange text-white flex items-center gap-3 shadow-md mt-4">
+        <span class="text-xl">🎟️</span> Comprar Ingressos
+      </button>
+    </nav>
+
+    <div class="p-4 bg-amber-50 border-t border-orange-100 text-center">
+      <p class="text-xs text-amber-900/60 font-semibold">Parceria UFV & Univiçosa</p>
+      <p class="text-[10px] text-amber-800/40">10 Anos Educando com Afeto</p>
     </div>
   </aside>
 
-  <!-- CONTEÚDO PRINCIPAL -->
+  <!-- ==================== CONTEÚDO PRINCIPAL (SPA) ==================== -->
   <main class="flex-grow">
 
-    <!-- ==================== PÁGINA 1: HOME ==================== -->
+    <!-- ==================== 1. PÁGINA INÍCIAL ==================== -->
     <div id="page-home" class="page-content">
       <section class="max-w-6xl mx-auto px-4 pt-8 pb-12 md:py-16 grid md:grid-cols-12 gap-8 items-center">
         
+        <!-- Texto de Apresentação -->
         <div class="md:col-span-7 text-center md:text-left space-y-5">
-          <div class="inline-flex items-center gap-2 bg-orange-100/90 border border-orange-200 px-3.5 py-1.5 rounded-full text-brand-title font-bold text-xs shadow-sm">
-            <span>🎉 Evento Comemorativo de 10 Anos</span>
+          <div class="inline-flex items-center gap-2 bg-amber-100 border-2 border-orange-200 px-4 py-1.5 rounded-full text-brand-title font-bold text-xs md:text-sm shadow-sm">
+            <span>🎉 Comemoração Oficial de 10 Anos</span>
           </div>
           
-          <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-brand-title leading-tight">
-            Uma Década de <span class="text-brand-orange underline decoration-wavy decoration-orange-300">Afeto</span>, Saúde e Assistência Social
+          <h1 class="text-3xl sm:text-5xl md:text-6xl font-extrabold text-brand-title leading-tight">
+            10 Anos de <span class="text-brand-orange underline decoration-wavy decoration-orange-300">Afeto</span>, Saúde e Assistência Social
           </h1>
           
           <p class="text-base md:text-lg text-amber-900/80 font-medium max-w-xl">
-            Projeto de extensão desenvolvido em colaboração entre a <strong>UFV</strong> e a <strong>Univiçosa</strong>, promovendo acolhimento e cuidado comunitário.
+            Uma trajetória multiprofissional construída em colaboração entre a <strong>UFV</strong> e a <strong>Univiçosa</strong>, promovendo o cuidado infantil humanizado e a extensão universitária na comunidade.
           </p>
 
-          <!-- CONTAGEM REGRESSIVA -->
-          <div class="bg-white/90 backdrop-blur border-2 border-orange-200/80 p-4 rounded-3xl shadow-sm w-full max-w-md mx-auto md:mx-0">
-            <span class="text-xs font-bold uppercase tracking-wider text-brand-orange block mb-2 text-center md:text-left">⏳ Contagem Regressiva para o Evento:</span>
+          <!-- CONTAGEM REGRESSIVA INTERATIVA -->
+          <div class="bg-white/90 backdrop-blur border-3 border-orange-200 p-4 md:p-5 rounded-3xl shadow-sm w-full max-w-md mx-auto md:mx-0">
+            <span class="text-xs font-bold uppercase tracking-wider text-brand-orange block mb-2 text-center md:text-left">⏳ O Grande Dia Está Chegando:</span>
             <div class="grid grid-cols-4 gap-2 text-center">
-              <div class="bg-amber-50/80 p-2 rounded-2xl border border-orange-100">
-                <span id="cd-days" class="font-heading text-xl md:text-2xl font-extrabold text-brand-title block">00</span>
+              <div class="bg-amber-50 p-2 rounded-2xl border border-orange-200">
+                <span id="cd-days" class="font-heading text-2xl md:text-3xl font-extrabold text-brand-title block">00</span>
                 <span class="text-[9px] font-bold text-amber-900 uppercase">Dias</span>
               </div>
-              <div class="bg-amber-50/80 p-2 rounded-2xl border border-orange-100">
-                <span id="cd-hours" class="font-heading text-xl md:text-2xl font-extrabold text-brand-title block">00</span>
+              <div class="bg-amber-50 p-2 rounded-2xl border border-orange-200">
+                <span id="cd-hours" class="font-heading text-2xl md:text-3xl font-extrabold text-brand-title block">00</span>
                 <span class="text-[9px] font-bold text-amber-900 uppercase">Horas</span>
               </div>
-              <div class="bg-amber-50/80 p-2 rounded-2xl border border-orange-100">
-                <span id="cd-minutes" class="font-heading text-xl md:text-2xl font-extrabold text-brand-title block">00</span>
+              <div class="bg-amber-50 p-2 rounded-2xl border border-orange-200">
+                <span id="cd-minutes" class="font-heading text-2xl md:text-3xl font-extrabold text-brand-title block">00</span>
                 <span class="text-[9px] font-bold text-amber-900 uppercase">Min</span>
               </div>
-              <div class="bg-amber-50/80 p-2 rounded-2xl border border-orange-100">
-                <span id="cd-seconds" class="font-heading text-xl md:text-2xl font-extrabold text-brand-title block">00</span>
+              <div class="bg-amber-50 p-2 rounded-2xl border border-orange-200">
+                <span id="cd-seconds" class="font-heading text-2xl md:text-3xl font-extrabold text-brand-title block">00</span>
                 <span class="text-[9px] font-bold text-amber-900 uppercase">Seg</span>
               </div>
             </div>
           </div>
 
           <div class="pt-2 flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
-            <button onclick="showPage('ingressos')" class="bg-brand-orange hover:bg-brand-orange-dark text-white font-heading text-base font-bold px-7 py-3.5 rounded-2xl shadow-md transition text-center">
-              Garantir Ingresso
+            <button onclick="showPage('ingressos')" class="bg-brand-orange hover:bg-brand-orange-dark text-white font-heading text-base font-bold px-8 py-4 rounded-2xl shadow-lg hover:shadow-orange-200 transition transform hover:-translate-y-1 text-center flex items-center justify-center gap-2">
+              Garantir Meu Ingresso 🎟️
             </button>
-            <button onclick="showPage('historia')" class="bg-white/90 border-2 border-orange-200 text-brand-title hover:border-brand-orange font-heading text-base font-bold px-6 py-3.5 rounded-2xl shadow-sm transition text-center">
-              Conhecer a História
+            <button onclick="showPage('programacao')" class="bg-white border-2 border-orange-200 hover:border-brand-orange text-brand-title font-heading text-base font-bold px-6 py-4 rounded-2xl shadow-sm transition text-center">
+              Ver Programação 📅
             </button>
           </div>
         </div>
 
-        <!-- Card de Destaque -->
-        <div class="md:col-span-5 flex justify-center mt-2 md:mt-0">
-          <div class="bg-white p-6 rounded-3xl border-2 border-orange-200 shadow-md max-w-xs w-full text-center">
-            <div class="bg-gradient-to-b from-amber-100 to-orange-100 rounded-2xl p-6 border border-orange-200/60 mb-4">
-              <span class="text-6xl mb-2 block">🧸</span>
-              <h3 class="font-heading font-bold text-xl text-brand-title">Cuidando do Ursinho</h3>
-              <span class="text-[11px] font-bold text-amber-800 bg-white/90 py-1 px-3 rounded-full inline-block mt-2 shadow-sm">
-                10 Anos de Extensão
+        <!-- QUADRINHO ANIMAÇÃO LÚDICA DO URSINHO (TORTINHO E COLORIDO) -->
+        <div class="md:col-span-5 flex justify-center mt-4 md:mt-0">
+          <div class="bg-white p-6 rounded-[2.5rem] border-4 border-orange-300 shadow-xl max-w-xs w-full transform -rotate-3 hover:rotate-0 transition duration-500 tape-effect animate-float-card relative overflow-hidden">
+            
+            <!-- Elementos decorativos estilo confete -->
+            <div class="absolute top-2 left-3 text-lg animate-wiggle">⭐</div>
+            <div class="absolute top-3 right-4 text-lg">🎈</div>
+            <div class="absolute bottom-3 left-4 text-sm">🎨</div>
+
+            <!-- Fundo Colorido Gradiente com Ursinho Animado -->
+            <div class="bg-gradient-to-b from-amber-100 via-orange-100 to-amber-200 rounded-2xl p-6 text-center border-2 border-dashed border-orange-300 relative">
+              <div class="text-7xl mb-2 inline-block animate-wiggle transform hover:scale-110 transition duration-300 cursor-pointer">
+                🧸
+              </div>
+              <h3 class="font-heading font-bold text-2xl text-brand-title mt-1">Cuidando do Ursinho</h3>
+              <span class="text-xs font-extrabold text-white bg-brand-orange px-3 py-1 rounded-full inline-block mt-2 shadow-sm">
+                10 Anos de História
               </span>
             </div>
-            <p class="text-xs text-amber-900/80 font-medium">
-              Ação multidisciplinar integrando Saúde e Assistência Social.
-            </p>
+
+            <div class="mt-4 text-center space-y-1">
+              <p class="text-xs font-bold text-brand-title">Atuação Multidisciplinar</p>
+              <p class="text-[11px] text-amber-900/70 font-semibold">Saúde & Assistência Social • UFV & Univiçosa</p>
+            </div>
           </div>
         </div>
 
       </section>
+
+      <!-- Ações Integradas (Cards Lúdicos) -->
+      <section class="max-w-6xl mx-auto px-4 py-10">
+        <div class="text-center max-w-2xl mx-auto mb-10">
+          <span class="font-heading text-brand-orange text-xs font-bold uppercase tracking-wider bg-orange-100 px-3 py-1 rounded-full">Projetos & Extensão</span>
+          <h2 class="text-3xl md:text-4xl font-extrabold text-brand-title mt-2">Nossa Atuação Comunitária</h2>
+        </div>
+
+        <div class="grid gap-6 md:grid-cols-3">
+          <div class="bg-amber-100/80 rounded-3xl p-6 border-3 border-orange-200 shadow-sm hover:shadow-md transition">
+            <div class="text-4xl mb-3">🩺🎨</div>
+            <h3 class="font-heading text-xl font-bold text-brand-title mb-2">Saúde Infantil</h3>
+            <p class="text-xs text-amber-900/80 leading-relaxed">
+              Atividades educativas e práticas de bem-estar de forma lúdica e acolhedora, envolvendo cursos da área da saúde.
+            </p>
+          </div>
+
+          <div class="bg-orange-100/80 rounded-3xl p-6 border-3 border-orange-200 shadow-sm hover:shadow-md transition">
+            <div class="text-4xl mb-3">🤝💛</div>
+            <h3 class="font-heading text-xl font-bold text-brand-title mb-2">Assistência Social</h3>
+            <p class="text-xs text-amber-900/80 leading-relaxed">
+              Acolhimento com escuta qualificada para as famílias, promovendo a cidadania, direitos sociais e fortalecimento comunitário.
+            </p>
+          </div>
+
+          <div class="bg-amber-100/80 rounded-3xl p-6 border-3 border-orange-200 shadow-sm hover:shadow-md transition">
+            <div class="text-4xl mb-3">🏛️🌟</div>
+            <h3 class="font-heading text-xl font-bold text-brand-title mb-2">Parceria Interinstitucional</h3>
+            <p class="text-xs text-amber-900/80 leading-relaxed">
+              Estudantes e professores da UFV e Univiçosa trabalhando juntos pela transformação social em Viçosa e região.
+            </p>
+          </div>
+        </div>
+      </section>
     </div>
 
-    <!-- ==================== PÁGINA 2: NOSSA HISTÓRIA ==================== -->
+    <!-- ==================== 2. PÁGINA HISTÓRIA DO PROJETO ==================== -->
     <div id="page-historia" class="page-content hidden">
       <section class="max-w-4xl mx-auto px-4 py-10">
         <div class="text-center mb-10">
-          <span class="bg-orange-100 text-brand-title font-bold text-xs px-3.5 py-1.5 rounded-full border border-orange-200 uppercase tracking-wider">
-            Trajetória & Impacto
+          <span class="bg-orange-100 text-brand-title font-bold text-xs px-4 py-1.5 rounded-full uppercase tracking-wider border border-orange-200">
+            📖 Nossa Trajetória
           </span>
-          <h2 class="text-3xl md:text-4xl font-extrabold text-brand-title font-heading mt-3">A História do Projeto</h2>
-          <p class="text-amber-900/80 text-sm mt-2 max-w-xl mx-auto">
-            Uma década de integração acadêmica e comunitária entre a Universidade Federal de Viçosa (UFV) e a Univiçosa.
+          <h2 class="text-3xl md:text-5xl font-extrabold text-brand-title font-heading mt-3">Uma Década de História</h2>
+          <p class="text-amber-900/70 text-sm mt-2 max-w-xl mx-auto">
+            Saiba como o Projeto Cuidando do Ursinho nasceu e se transformou em uma referência de extensão em Saúde e Assistência Social.
           </p>
         </div>
 
-        <div class="bg-white/90 rounded-3xl p-6 md:p-8 border-2 border-orange-200 shadow-sm space-y-6">
-          <div class="border-l-4 border-brand-orange pl-4 space-y-1">
-            <span class="text-xs font-bold text-brand-orange uppercase">Origem e Propósito</span>
-            <h3 class="font-heading font-bold text-xl text-brand-title">Como tudo começou</h3>
-            <p class="text-xs md:text-sm text-amber-900/80 leading-relaxed">
-              O "Projeto Cuidando do Ursinho" nasceu com o objetivo de humanizar o cuidado e aproximar estudantes universitários da realidade da comunidade, utilizando elementos lúdicos para promover saúde e acolhimento social.
-            </p>
+        <div class="bg-white rounded-3xl p-6 md:p-10 border-4 border-orange-200 shadow-md space-y-8">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 bg-orange-100 rounded-2xl flex items-center justify-center text-2xl font-bold text-brand-orange shrink-0">
+              🌱
+            </div>
+            <div>
+              <h3 class="font-heading font-bold text-xl text-brand-title">O Início de Tudo</h3>
+              <p class="text-xs md:text-sm text-amber-900/80 mt-1 leading-relaxed">
+                O projeto começou com o desejo de humanizar o atendimento infantil e reduzir o medo que as crianças sentem em consultas e ambientes de saúde. Através do brinquedo terapêutico e da simulação com ursinhos de pelúcia, os estudantes encontraram uma forma lúdica de se aproximar dos pequenos.
+              </p>
+            </div>
           </div>
 
-          <div class="border-l-4 border-brand-orange pl-4 space-y-1">
-            <span class="text-xs font-bold text-brand-orange uppercase">Caráter Multidisciplinar</span>
-            <h3 class="font-heading font-bold text-xl text-brand-title">União de Forças e Áreas</h3>
-            <p class="text-xs md:text-sm text-amber-900/80 leading-relaxed">
-              Diferente de ações focadas em um único curso, o projeto se consolidou como um espaço interdisciplinar. Estudantes e professores das áreas da Saúde e da Assistência Social atuam juntos, garantindo um olhar amplo e integrado para as famílias atendidas.
-            </p>
+          <div class="flex items-start gap-4 border-t border-orange-100 pt-6">
+            <div class="w-12 h-12 bg-amber-100 rounded-2xl flex items-center justify-center text-2xl font-bold text-brand-orange shrink-0">
+              🤝
+            </div>
+            <div>
+              <h3 class="font-heading font-bold text-xl text-brand-title">A Parceria UFV & Univiçosa</h3>
+              <p class="text-xs md:text-sm text-amber-900/80 mt-1 leading-relaxed">
+                Com o passar dos anos, o projeto expandiu suas fronteiras. A união entre a Universidade Federal de Viçosa (UFV) e a Univiçosa fortaleceu a iniciativa, conectando alunos de diversos cursos para uma atuação verdadeiramente multiprofissional.
+              </p>
+            </div>
           </div>
 
-          <div class="border-l-4 border-brand-orange pl-4 space-y-1">
-            <span class="text-xs font-bold text-brand-orange uppercase">Parceria UFV & Univiçosa</span>
-            <h3 class="font-heading font-bold text-xl text-brand-title">Fortalecendo a Extensão Universitária</h3>
-            <p class="text-xs md:text-sm text-amber-900/80 leading-relaxed">
-              A colaboração entre a UFV e a Univiçosa demonstra o poder da união de duas grandes instituições de ensino de Viçosa em prol do desenvolvimento social e da formação humana de novos profissionais.
-            </p>
+          <div class="flex items-start gap-4 border-t border-orange-100 pt-6">
+            <div class="w-12 h-12 bg-pink-100 rounded-2xl flex items-center justify-center text-2xl font-bold text-pink-600 shrink-0">
+              💛
+            </div>
+            <div>
+              <h3 class="font-heading font-bold text-xl text-brand-title">Saúde e Assistência Social Integradas</h3>
+              <p class="text-xs md:text-sm text-amber-900/80 mt-1 leading-relaxed">
+                Hoje, o projeto abraça a saúde integral e a assistência social, promovendo rodas de conversa, apoio comunitário, orientação às famílias e eventos comemorativos em escolas e espaços públicos de Viçosa.
+              </p>
+            </div>
           </div>
         </div>
       </section>
     </div>
 
-    <!-- ==================== PÁGINA 3: PROGRAMAÇÃO & FAQ ==================== -->
+    <!-- ==================== 3. PÁGINA PROGRAMAÇÃO & FAQ ==================== -->
     <div id="page-programacao" class="page-content hidden">
       <section class="max-w-4xl mx-auto px-4 py-10">
-        <div class="text-center mb-8">
-          <h2 class="text-3xl md:text-4xl font-extrabold text-brand-title font-heading">Programação do Aniversário</h2>
-          <p class="text-amber-900/70 text-xs mt-1">Confira os horários e atividades planejadas.</p>
+        <div class="text-center mb-10">
+          <h2 class="text-3xl md:text-5xl font-extrabold text-brand-title font-heading">Programação dos 10 Anos</h2>
+          <p class="text-amber-900/70 text-xs md:text-sm mt-1">Confira o cronograma completo das atividades do nosso evento.</p>
         </div>
 
-        <div class="bg-white/90 rounded-3xl p-5 md:p-6 border-2 border-orange-200 shadow-sm space-y-3 mb-10">
-          <div class="p-3.5 rounded-2xl bg-amber-50/80 border border-orange-100">
-            <span class="bg-brand-orange text-white font-bold text-[11px] px-3 py-1 rounded-md inline-block mb-1">08:00 - 09:00</span>
-            <h4 class="font-heading font-bold text-sm md:text-base text-brand-title">Credenciamento & Acolhimento</h4>
-            <p class="text-xs text-amber-900/70 mt-0.5">Recepção dos participantes e entrega dos materiais.</p>
+        <!-- Cronograma -->
+        <div class="bg-white rounded-3xl p-5 md:p-8 border-4 border-orange-200 shadow-md space-y-4 mb-12">
+          <div class="p-4 rounded-2xl bg-amber-50 border border-orange-100 flex flex-col md:flex-row md:items-center gap-3">
+            <span class="bg-brand-orange text-white font-heading font-bold text-xs px-3 py-1.5 rounded-xl w-fit">08:00 - 09:00</span>
+            <div>
+              <h4 class="font-heading font-bold text-base text-brand-title">Credenciamento e Café de Boas-Vindas</h4>
+              <p class="text-xs text-amber-900/70">Recepção dos inscritos, entrega de kits comemorativos e integração.</p>
+            </div>
           </div>
 
-          <div class="p-3.5 rounded-2xl bg-orange-50/80 border border-orange-100">
-            <span class="bg-brand-orange text-white font-bold text-[11px] px-3 py-1 rounded-md inline-block mb-1">09:00 - 10:30</span>
-            <h4 class="font-heading font-bold text-sm md:text-base text-brand-title">Mesa de Abertura: 10 Anos de História</h4>
-            <p class="text-xs text-amber-900/70 mt-0.5">Apresentação da trajetória do projeto por representantes da UFV e Univiçosa.</p>
+          <div class="p-4 rounded-2xl bg-orange-50 border border-orange-100 flex flex-col md:flex-row md:items-center gap-3">
+            <span class="bg-brand-orange text-white font-heading font-bold text-xs px-3 py-1.5 rounded-xl w-fit">09:00 - 10:30</span>
+            <div>
+              <h4 class="font-heading font-bold text-base text-brand-title">Mesa de Abertura: Trajetória e Impacto Social</h4>
+              <p class="text-xs text-amber-900/70">Apresentação da trajetória de 10 anos pelas equipes da UFV e Univiçosa.</p>
+            </div>
           </div>
 
-          <div class="p-3.5 rounded-2xl bg-amber-50/80 border border-orange-100">
-            <span class="bg-brand-orange text-white font-bold text-[11px] px-3 py-1 rounded-md inline-block mb-1">10:30 - 12:00</span>
-            <h4 class="font-heading font-bold text-sm md:text-base text-brand-title">Painel: Atuação Multidisciplinar</h4>
-            <p class="text-xs text-amber-900/70 mt-0.5">Relatos sobre a integração das áreas de Saúde e Assistência Social na extensão.</p>
+          <div class="p-4 rounded-2xl bg-amber-50 border border-orange-100 flex flex-col md:flex-row md:items-center gap-3">
+            <span class="bg-brand-orange text-white font-heading font-bold text-xs px-3 py-1.5 rounded-xl w-fit">10:30 - 12:00</span>
+            <div>
+              <h4 class="font-heading font-bold text-base text-brand-title">Painel: Extensão Multidisciplinar na Prática</h4>
+              <p class="text-xs text-amber-900/70">Relatos de experiência sobre a atuação conjunta da Saúde e Assistência Social.</p>
+            </div>
           </div>
         </div>
 
         <!-- FAQ -->
         <div class="text-center mb-6">
-          <h3 class="text-xl md:text-2xl font-bold text-brand-title font-heading">Perguntas Frequentes (FAQ)</h3>
+          <h3 class="text-2xl font-bold text-brand-title font-heading">Perguntas Frequentes (FAQ)</h3>
         </div>
 
         <div class="space-y-3">
-          <details class="bg-white/90 rounded-2xl border border-orange-200 p-4 shadow-sm">
-            <summary class="font-heading font-bold text-sm text-brand-title cursor-pointer">
-              Quem pode participar do evento?
+          <details class="bg-white rounded-2xl border-2 border-orange-200 p-4 shadow-sm">
+            <summary class="font-heading font-bold text-sm md:text-base text-brand-title cursor-pointer">
+              Quem pode participar do evento de 10 anos?
             </summary>
-            <p class="text-xs text-amber-900/80 mt-2 pt-2 border-t border-orange-100">
-              Estudantes, professores da UFV e Univiçosa, profissionais de Saúde, Assistência Social e toda a comunidade de Viçosa.
+            <p class="text-xs md:text-sm text-amber-900/80 mt-2 pt-2 border-t border-orange-100">
+              Estudantes e professores da UFV e Univiçosa, profissionais da Saúde, da Assistência Social e toda a comunidade de Viçosa e região.
             </p>
           </details>
 
-          <details class="bg-white/90 rounded-2xl border border-orange-200 p-4 shadow-sm">
-            <summary class="font-heading font-bold text-sm text-brand-title cursor-pointer">
-              Haverá certificado de participação?
+          <details class="bg-white rounded-2xl border-2 border-orange-200 p-4 shadow-sm">
+            <summary class="font-heading font-bold text-sm md:text-base text-brand-title cursor-pointer">
+              O evento emite certificado?
             </summary>
-            <p class="text-xs text-amber-900/80 mt-2 pt-2 border-t border-orange-100">
-              Sim! Todos os inscritos com presença confirmada receberão certificado.
+            <p class="text-xs md:text-sm text-amber-900/80 mt-2 pt-2 border-t border-orange-100">
+              Sim! Todos os participantes com presença confirmada receberão certificado emitido pelas instituições.
             </p>
           </details>
         </div>
       </section>
     </div>
 
-    <!-- ==================== PÁGINA 4: GALERIA DE FOTOS & INSTAGRAM ==================== -->
+    <!-- ==================== 4. PÁGINA GALERIA DE FOTOS ==================== -->
     <div id="page-galeria" class="page-content hidden">
+      <section class="max-w-6xl mx-auto px-4 py-10">
+        <div class="text-center mb-10">
+          <span class="bg-amber-100 text-brand-title font-bold text-xs px-4 py-1.5 rounded-full uppercase tracking-wider border border-orange-200">
+            🖼️ Recordações
+          </span>
+          <h2 class="text-3xl md:text-5xl font-extrabold text-brand-title font-heading mt-3">Galeria de Fotos</h2>
+          <p class="text-amber-900/70 text-xs md:text-sm mt-1">Alguns momentos marcantes vividos ao longo desses 10 anos.</p>
+        </div>
+
+        <!-- Molduras de Fotos com Estilo Polaróide Lúdico -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          
+          <div class="bg-white p-4 rounded-2xl border-3 border-orange-200 shadow-md transform -rotate-1 hover:rotate-0 transition">
+            <div class="bg-amber-100 rounded-xl h-48 flex flex-col items-center justify-center text-amber-800 text-center p-4 border border-dashed border-orange-300">
+              <span class="text-4xl mb-2">📸</span>
+              <p class="text-xs font-bold">Foto das Atividades</p>
+              <span class="text-[10px] text-amber-900/60 mt-1">[Espaço para inserir foto do seu projeto]</span>
+            </div>
+            <p class="font-heading text-xs font-bold text-brand-title text-center mt-3">Ações Comunitárias</p>
+          </div>
+
+          <div class="bg-white p-4 rounded-2xl border-3 border-orange-200 shadow-md transform rotate-2 hover:rotate-0 transition">
+            <div class="bg-orange-100 rounded-xl h-48 flex flex-col items-center justify-center text-amber-800 text-center p-4 border border-dashed border-orange-300">
+              <span class="text-4xl mb-2">🧸</span>
+              <p class="text-xs font-bold">Atendimento Lúdico</p>
+              <span class="text-[10px] text-amber-900/60 mt-1">[Espaço para inserir foto do seu projeto]</span>
+            </div>
+            <p class="font-heading text-xs font-bold text-brand-title text-center mt-3">Cuidado e Humanização</p>
+          </div>
+
+          <div class="bg-white p-4 rounded-2xl border-3 border-orange-200 shadow-md transform -rotate-2 hover:rotate-0 transition">
+            <div class="bg-amber-100 rounded-xl h-48 flex flex-col items-center justify-center text-amber-800 text-center p-4 border border-dashed border-orange-300">
+              <span class="text-4xl mb-2">🎓</span>
+              <p class="text-xs font-bold">Equipe UFV & Univiçosa</p>
+              <span class="text-[10px] text-amber-900/60 mt-1">[Espaço para inserir foto do seu projeto]</span>
+            </div>
+            <p class="font-heading text-xs font-bold text-brand-title text-center mt-3">Estudantes e Professores</p>
+          </div>
+
+        </div>
+      </section>
+    </div>
+
+    <!-- ==================== 5. PÁGINA INTEGRAÇÃO DO FEED DO INSTAGRAM ==================== -->
+    <div id="page-instagram" class="page-content hidden">
       <section class="max-w-5xl mx-auto px-4 py-10">
         <div class="text-center mb-8">
-          <span class="bg-orange-100 text-brand-title font-bold text-xs px-3.5 py-1.5 rounded-full border border-orange-200 uppercase tracking-wider">
-            Momentos Marcantes
+          <span class="bg-pink-100 text-pink-600 font-bold text-xs px-4 py-1.5 rounded-full uppercase tracking-wider border border-pink-200">
+            📸 Nosso Instagram Ao Vivo
           </span>
-          <h2 class="text-3xl md:text-4xl font-extrabold text-brand-title font-heading mt-3">Galeria & Instagram</h2>
-          <p class="text-amber-900/70 text-xs mt-1">Acompanhe as fotos das nossas ações comunitárias.</p>
+          <h2 class="text-3xl md:text-5xl font-extrabold text-brand-title font-heading mt-3">Acompanhe Nosso Feed</h2>
+          <p class="text-amber-900/70 text-xs md:text-sm mt-1 max-w-lg mx-auto">
+            Acompanhe em tempo real as fotos, vídeos e novidades direto da nossa página oficial do Instagram!
+          </p>
         </div>
 
-        <!-- Grade estilo Instagram -->
-        <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8">
-          <div class="bg-white p-3 rounded-2xl border border-orange-200 shadow-sm text-center">
-            <div class="bg-amber-100 rounded-xl aspect-square flex items-center justify-center text-3xl mb-2">📸</div>
-            <span class="text-[11px] font-bold text-brand-title block">Ação em Saúde</span>
-          </div>
-          <div class="bg-white p-3 rounded-2xl border border-orange-200 shadow-sm text-center">
-            <div class="bg-amber-100 rounded-xl aspect-square flex items-center justify-center text-3xl mb-2">🧸</div>
-            <span class="text-[11px] font-bold text-brand-title block">Atividades Lúdicas</span>
-          </div>
-          <div class="bg-white p-3 rounded-2xl border border-orange-200 shadow-sm text-center">
-            <div class="bg-amber-100 rounded-xl aspect-square flex items-center justify-center text-3xl mb-2">🤝</div>
-            <span class="text-[11px] font-bold text-brand-title block">Equipe Multidisciplinar</span>
-          </div>
-        </div>
+        <!-- WIDGET EMBEDDED INTEGRADO DO INSTAGRAM -->
+        <div class="bg-white p-4 md:p-8 rounded-3xl border-4 border-pink-200 shadow-lg mb-8">
+          
+          <div class="flex items-center justify-between mb-6 pb-4 border-b border-pink-100">
+            <div class="flex items-center gap-3">
+              <div class="w-12 h-12 bg-gradient-to-tr from-amber-400 via-pink-500 to-purple-600 rounded-full p-0.5 shadow-sm">
+                <div class="w-full h-full bg-white rounded-full flex items-center justify-center text-xl">
+                  🧸
+                </div>
+              </div>
+              <div>
+                <h3 class="font-heading font-bold text-base md:text-lg text-slate-800 leading-none">@cuidandodoursinho</h3>
+                <span class="text-xs text-slate-500 font-semibold">Projeto de Extensão UFV & Univiçosa</span>
+              </div>
+            </div>
 
-        <div class="bg-amber-100/80 rounded-2xl p-6 text-center border border-orange-200">
-          <p class="font-heading font-bold text-brand-title text-sm mb-2">Siga o Projeto no Instagram</p>
-          <p class="text-xs text-amber-900/70 mb-4">Veja mais fotos e atualizações em tempo real no nosso perfil oficial.</p>
-          <a href="https://www.instagram.com/ursinhoufv/" target="_blank" class="inline-block bg-brand-title text-white font-heading font-bold px-5 py-2.5 rounded-xl text-xs shadow-sm">
-            Ver Instagram Oficial ➔
-          </a>
+            <a href="https://instagram.com" target="_blank" class="bg-pink-600 hover:bg-pink-700 text-white font-heading text-xs font-bold px-4 py-2 rounded-xl transition shadow-sm flex items-center gap-1">
+              Seguir no Instagram ➜
+            </a>
+          </div>
+
+          <!-- Feed Simulado e Estrutura para Widget Oficial (Elfsight/Behold) -->
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            
+            <div class="bg-pink-50 rounded-2xl p-3 border border-pink-200 text-center hover:shadow-md transition group cursor-pointer">
+              <div class="bg-white rounded-xl h-40 flex flex-col items-center justify-center text-pink-500 mb-2 border border-dashed border-pink-300 group-hover:scale-102 transition">
+                <span class="text-3xl mb-1">📸</span>
+                <span class="text-[10px] font-bold text-slate-600">Post do Instagram</span>
+              </div>
+              <p class="text-[10px] text-slate-600 font-semibold line-clamp-2">Comemoração do Dia Mundial da Saúde Infantil! 🎈</p>
+            </div>
+
+            <div class="bg-pink-50 rounded-2xl p-3 border border-pink-200 text-center hover:shadow-md transition group cursor-pointer">
+              <div class="bg-white rounded-xl h-40 flex flex-col items-center justify-center text-pink-500 mb-2 border border-dashed border-pink-300 group-hover:scale-102 transition">
+                <span class="text-3xl mb-1">🧸</span>
+                <span class="text-[10px] font-bold text-slate-600">Post do Instagram</span>
+              </div>
+              <p class="text-[10px] text-slate-600 font-semibold line-clamp-2">Oficina de Brinquedo Terapêutico na UFV! ✨</p>
+            </div>
+
+            <div class="bg-pink-50 rounded-2xl p-3 border border-pink-200 text-center hover:shadow-md transition group cursor-pointer">
+              <div class="bg-white rounded-xl h-40 flex flex-col items-center justify-center text-pink-500 mb-2 border border-dashed border-pink-300 group-hover:scale-102 transition">
+                <span class="text-3xl mb-1">🤝</span>
+                <span class="text-[10px] font-bold text-slate-600">Post do Instagram</span>
+              </div>
+              <p class="text-[10px] text-slate-600 font-semibold line-clamp-2">Ação de Assistência Social e Acolhimento 💛</p>
+            </div>
+
+            <div class="bg-pink-50 rounded-2xl p-3 border border-pink-200 text-center hover:shadow-md transition group cursor-pointer">
+              <div class="bg-white rounded-xl h-40 flex flex-col items-center justify-center text-pink-500 mb-2 border border-dashed border-pink-300 group-hover:scale-102 transition">
+                <span class="text-3xl mb-1">🎉</span>
+                <span class="text-[10px] font-bold text-slate-600">Post do Instagram</span>
+              </div>
+              <p class="text-[10px] text-slate-600 font-semibold line-clamp-2">Contagem regressiva para os nossos 10 Anos! 🎟️</p>
+            </div>
+
+          </div>
+
+          <div class="mt-6 text-center pt-4 border-t border-pink-100">
+            <p class="text-xs text-slate-500">
+              💡 <em>Dica: Para sincronizar as publicações em tempo real do seu perfil oficial, basta colar o código do widget (ex: Elfsight ou Behold) neste espaço.</em>
+            </p>
+          </div>
+
         </div>
       </section>
     </div>
 
-    <!-- ==================== PÁGINA 5: INGRESSOS ==================== -->
+    <!-- ==================== 6. PÁGINA VENDA DE INGRESSOS ==================== -->
     <div id="page-ingressos" class="page-content hidden">
       <section class="max-w-5xl mx-auto px-4 py-10">
-        <div class="text-center mb-8">
-          <h2 class="text-3xl md:text-4xl font-extrabold text-brand-title font-heading">Ingressos para o Aniversário</h2>
-          <p class="text-amber-900/70 text-xs mt-1">Selecione sua categoria para realizar a reserva.</p>
+        <div class="text-center mb-10">
+          <h2 class="text-3xl md:text-5xl font-extrabold text-brand-title font-heading">Ingressos para o Aniversário</h2>
+          <p class="text-amber-900/70 text-xs md:text-sm mt-1">Garanta sua participação no nosso evento de 10 anos.</p>
         </div>
 
-        <div class="grid gap-4 md:grid-cols-3 mb-8">
+        <div class="grid gap-6 md:grid-cols-3 mb-10">
           
           <!-- Lote Estudante -->
-          <div class="bg-white/90 rounded-3xl p-5 border-2 border-orange-200 shadow-sm flex flex-col justify-between">
+          <div class="bg-white rounded-3xl p-6 border-3 border-orange-200 shadow-md flex flex-col justify-between">
             <div>
-              <span class="bg-amber-100 text-brand-title font-bold text-[10px] px-2.5 py-0.5 rounded-full">1º Lote</span>
-              <h3 class="font-heading font-bold text-lg text-brand-title mt-2">Estudante</h3>
-              <p class="text-[11px] text-amber-900/70">UFV, Univiçosa e outras</p>
+              <span class="bg-amber-100 text-brand-title font-bold text-xs px-3 py-1 rounded-full">1º Lote</span>
+              <h3 class="font-heading font-bold text-xl text-brand-title mt-3">Estudante</h3>
+              <p class="text-xs text-amber-900/70">UFV, Univiçosa e outras</p>
               <div class="my-4">
                 <span class="text-3xl font-extrabold font-heading text-brand-orange">R$ 15,00</span>
               </div>
             </div>
-            <button onclick="selecionarIngresso('Estudante')" class="w-full bg-brand-orange text-white font-heading font-bold py-2.5 rounded-xl text-xs shadow-sm">
+            <button onclick="selecionarIngresso('Estudante')" class="w-full bg-brand-orange hover:bg-brand-orange-dark text-white font-heading font-bold py-3 rounded-xl text-sm transition">
               Selecionar Ingresso
             </button>
           </div>
 
-          <!-- Lote Profissional -->
-          <div class="bg-orange-50/90 rounded-3xl p-5 border-2 border-brand-orange shadow-md flex flex-col justify-between">
+          <!-- Lote Profissional / Comunidade -->
+          <div class="bg-amber-50 rounded-3xl p-6 border-3 border-brand-orange shadow-lg flex flex-col justify-between relative">
+            <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-brand-orange text-white font-bold text-[10px] px-3 py-0.5 rounded-full shadow-sm">
+              Mais Procurado
+            </span>
             <div>
-              <span class="bg-brand-orange text-white font-bold text-[10px] px-2.5 py-0.5 rounded-full">Geral</span>
-              <h3 class="font-heading font-bold text-lg text-brand-title mt-2">Comunidade & Profissionais</h3>
-              <p class="text-[11px] text-amber-900/70">Saúde, Assistência Social e Geral</p>
+              <span class="bg-white text-brand-title font-bold text-xs px-3 py-1 rounded-full">Geral</span>
+              <h3 class="font-heading font-bold text-xl text-brand-title mt-3">Comunidade & Profissionais</h3>
+              <p class="text-xs text-amber-900/70">Saúde, Assistência e Comunidade</p>
               <div class="my-4">
                 <span class="text-3xl font-extrabold font-heading text-brand-title">R$ 30,00</span>
               </div>
             </div>
-            <button onclick="selecionarIngresso('Comunidade e Profissionais')" class="w-full bg-brand-title text-white font-heading font-bold py-2.5 rounded-xl text-xs shadow-sm">
-              Garantir Ingresso
+            <button onclick="selecionarIngresso('Comunidade e Profissionais')" class="w-full bg-brand-title hover:bg-brand-brown text-white font-heading font-bold py-3 rounded-xl text-sm transition">
+              Garantir Ingresso 🎟️
             </button>
           </div>
 
           <!-- Ingresso Solidário -->
-          <div class="bg-white/90 rounded-3xl p-5 border-2 border-orange-200 shadow-sm flex flex-col justify-between">
+          <div class="bg-white rounded-3xl p-6 border-3 border-orange-200 shadow-md flex flex-col justify-between">
             <div>
-              <span class="bg-amber-100 text-brand-title font-bold text-[10px] px-2.5 py-0.5 rounded-full">Ação Social</span>
-              <h3 class="font-heading font-bold text-lg text-brand-title mt-2">Ingresso Solidário</h3>
-              <p class="text-[11px] text-amber-900/70">+ 1 brinquedo novo/bom estado</p>
+              <span class="bg-amber-100 text-brand-title font-bold text-xs px-3 py-1 rounded-full">Ação Social</span>
+              <h3 class="font-heading font-bold text-xl text-brand-title mt-3">Ingresso Solidário</h3>
+              <p class="text-xs text-amber-900/70">+ 1 brinquedo novo ou em bom estado</p>
               <div class="my-4">
                 <span class="text-3xl font-extrabold font-heading text-brand-orange">R$ 20,00</span>
               </div>
             </div>
-            <button onclick="selecionarIngresso('Solidário')" class="w-full bg-brand-orange text-white font-heading font-bold py-2.5 rounded-xl text-xs shadow-sm">
+            <button onclick="selecionarIngresso('Solidário')" class="w-full bg-brand-orange hover:bg-brand-orange-dark text-white font-heading font-bold py-3 rounded-xl text-sm transition">
               Selecionar Ingresso
             </button>
           </div>
 
         </div>
 
-        <!-- Form de Reserva -->
-        <div id="form-compra" class="bg-white rounded-3xl p-6 border-2 border-orange-200 shadow-md hidden max-w-xl mx-auto">
-          <h3 class="text-base font-bold font-heading text-brand-title mb-1 text-center">
+        <!-- Formulário de Compra -->
+        <div id="form-compra" class="bg-white rounded-3xl p-6 border-3 border-orange-200 shadow-md max-w-lg mx-auto hidden">
+          <h3 class="text-lg font-bold font-heading text-brand-title mb-1 text-center">
             Reserva: <span id="tipo-ingresso-nome" class="text-brand-orange"></span>
           </h3>
-          <p class="text-[11px] text-amber-900/70 text-center mb-4">Preencha seus dados para receber o comprovante e as instruções de pagamento.</p>
+          <p class="text-xs text-amber-900/70 text-center mb-4">Preencha para solicitar sua reserva do ingresso.</p>
 
-          <form onsubmit="event.preventDefault(); alert('Pré-reserva realizada! As orientações foram enviadas para seu e-mail. 🧸');" class="space-y-3">
+          <form onsubmit="event.preventDefault(); alert('Solicitação enviada com sucesso! Te enviaremos os dados de confirmação em breve 🧸');" class="space-y-3">
             <div>
               <label class="block font-bold text-amber-900 text-xs mb-1">Nome Completo</label>
-              <input type="text" placeholder="Seu nome" required class="w-full px-3 py-2 rounded-xl border border-orange-200 text-xs focus:outline-none focus:border-brand-orange">
+              <input type="text" placeholder="Seu nome" required class="w-full px-3 py-2 rounded-xl border-2 border-orange-100 focus:border-brand-orange focus:outline-none text-xs">
             </div>
             <div>
               <label class="block font-bold text-amber-900 text-xs mb-1">E-mail</label>
-              <input type="email" placeholder="seu@email.com" required class="w-full px-3 py-2 rounded-xl border border-orange-200 text-xs focus:outline-none focus:border-brand-orange">
+              <input type="email" placeholder="seu@email.com" required class="w-full px-3 py-2 rounded-xl border-2 border-orange-100 focus:border-brand-orange focus:outline-none text-xs">
             </div>
-            <button type="submit" class="w-full bg-brand-orange text-white font-heading font-bold py-2.5 rounded-xl text-xs shadow">
-              Finalizar Reserva
+            <button type="submit" class="w-full bg-brand-orange hover:bg-brand-orange-dark text-white font-heading font-bold py-3 rounded-xl text-xs shadow-md transition">
+              Finalizar Pré-Reserva 🎟️
             </button>
           </form>
         </div>
@@ -417,56 +624,49 @@
 
   </main>
 
-  <!-- Footer -->
-  <footer class="bg-amber-100/80 border-t border-orange-200 py-6 text-center text-amber-900/70 text-xs mt-auto">
-    <div class="max-w-6xl mx-auto px-4 space-y-1">
-      <p class="font-bold text-brand-title font-heading text-sm">Projeto Cuidando do Ursinho • 10 Anos</p>
-      <p>Desenvolvido em parceria entre <strong>UFV</strong> e <strong>Univiçosa</strong></p>
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="bg-amber-100/80 border-t-2 border-orange-200 py-8 text-center text-amber-900/80 text-xs mt-auto">
+    <div class="max-w-6xl mx-auto px-4 space-y-2">
+      <p class="font-bold text-brand-title font-heading text-base">Projeto Cuidando do Ursinho • 10 Anos</p>
+      <p>Desenvolvido em parceria pela <strong>UFV (Universidade Federal de Viçosa)</strong> e <strong>Univiçosa</strong></p>
+      <p class="text-[10px] text-amber-900/50">Saúde e Assistência Social unidas pela humanização e cuidado infantil.</p>
     </div>
   </footer>
 
-  <!-- Scripts JavaScript -->
+  <!-- ==================== SCRIPTS JS ==================== -->
   <script>
-    // Controle da Gaveta Mobile
-    function toggleMobileMenu() {
-      const sidebar = document.getElementById('mobile-sidebar');
-      const overlay = document.getElementById('mobile-overlay');
-      const isHidden = sidebar.classList.contains('translate-x-full');
-
-      if (isHidden) {
-        sidebar.classList.remove('translate-x-full');
-        overlay.classList.remove('hidden');
-      } else {
-        sidebar.classList.add('translate-x-full');
-        overlay.classList.add('hidden');
-      }
-    }
-
-    function navigateAndClose(pageId) {
-      showPage(pageId);
-      toggleMobileMenu();
-    }
-
-    // Troca de Páginas
     function showPage(pageId) {
       const pages = document.querySelectorAll('.page-content');
-      pages.forEach(p => p.classList.add('hidden'));
+      pages.forEach(page => page.classList.add('hidden'));
 
-      const target = document.getElementById('page-' + pageId);
-      if (target) {
-        target.classList.remove('hidden');
+      const targetPage = document.getElementById('page-' + pageId);
+      if (targetPage) {
+        targetPage.classList.remove('hidden');
       }
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // Seleção de Ingresso
+    function toggleMobileMenu() {
+      const sidebar = document.getElementById('mobile-sidebar');
+      const backdrop = document.getElementById('mobile-sidebar-backdrop');
+      
+      const isOpen = !sidebar.classList.contains('translate-x-full');
+      
+      if (isOpen) {
+        sidebar.classList.add('translate-x-full');
+        backdrop.classList.add('hidden');
+      } else {
+        sidebar.classList.remove('translate-x-full');
+        backdrop.classList.remove('hidden');
+      }
+    }
+
     function selecionarIngresso(tipo) {
       document.getElementById('form-compra').classList.remove('hidden');
       document.getElementById('tipo-ingresso-nome').innerText = tipo;
       document.getElementById('form-compra').scrollIntoView({ behavior: 'smooth' });
     }
 
-    // Contagem Regressiva
     const eventDate = new Date();
     eventDate.setDate(eventDate.getDate() + 30);
 
@@ -492,4 +692,4 @@
   </script>
 
 </body>
-</html> 
+</html>
