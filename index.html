@@ -115,20 +115,20 @@
       
       <!-- Navegação Desktop -->
       <nav class="hidden lg:flex items-center gap-2 font-heading font-bold text-sm text-amber-900">
-        <button onclick="showPage('home')" class="px-3 py-1.5 rounded-xl hover:bg-orange-100 hover:text-brand-orange transition">🏠 Início</button>
-        <button onclick="showPage('historia')" class="px-3 py-1.5 rounded-xl hover:bg-orange-100 hover:text-brand-orange transition">📖 História</button>
-        <button onclick="showPage('programacao')" class="px-3 py-1.5 rounded-xl hover:bg-orange-100 hover:text-brand-orange transition">📅 Programação & FAQ</button>
-        <button onclick="showPage('galeria')" class="px-3 py-1.5 rounded-xl hover:bg-orange-100 hover:text-brand-orange transition">🖼️ Galeria</button>
+        <button onclick="showPage('home')" class="px-3 py-1.5 rounded-xl hover:bg-orange-100 hover:text-brand-orange transition"> Início</button>
+        <button onclick="showPage('historia')" class="px-3 py-1.5 rounded-xl hover:bg-orange-100 hover:text-brand-orange transition"> História</button>
+        <button onclick="showPage('programacao')" class="px-3 py-1.5 rounded-xl hover:bg-orange-100 hover:text-brand-orange transition"> Programação & FAQ</button>
+        <button onclick="showPage('galeria')" class="px-3 py-1.5 rounded-xl hover:bg-orange-100 hover:text-brand-orange transition"> Galeria</button>
         <button onclick="showPage('instagram')" class="px-3 py-1.5 rounded-xl hover:bg-pink-100 text-pink-600 transition flex items-center gap-1">📸 Feed Instagram</button>
         <button onclick="showPage('ingressos')" class="ml-2 bg-brand-orange hover:bg-brand-orange-dark text-white px-5 py-2 rounded-2xl font-heading text-base shadow-md hover:shadow-orange-200 transition transform hover:-translate-y-0.5 flex items-center gap-1">
-          🎟️ Ingressos
+           Ingressos
         </button>
       </nav>
 
       <!-- Botão Hambúrguer para Celular -->
       <div class="lg:hidden flex items-center gap-2">
         <button onclick="showPage('ingressos')" class="bg-brand-orange text-white text-xs font-bold px-3 py-2 rounded-xl font-heading shadow-sm">
-          Ingressos 🎟️
+          Ingressos 
         </button>
         <button onclick="toggleMobileMenu()" class="p-2 bg-amber-100 border-2 border-orange-200 text-brand-title rounded-xl focus:outline-none">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -153,22 +153,22 @@
 
     <nav class="flex-1 px-4 py-6 space-y-2 font-heading font-bold text-amber-900 overflow-y-auto">
       <button onclick="showPage('home'); toggleMobileMenu()" class="w-full text-left px-4 py-3 rounded-2xl hover:bg-orange-100 flex items-center gap-3">
-        <span class="text-xl">🏠</span> Início
+        <span class="text-xl"></span> Início
       </button>
       <button onclick="showPage('historia'); toggleMobileMenu()" class="w-full text-left px-4 py-3 rounded-2xl hover:bg-orange-100 flex items-center gap-3">
-        <span class="text-xl">📖</span> Nossa História
+        <span class="text-xl"></span> Nossa História
       </button>
       <button onclick="showPage('programacao'); toggleMobileMenu()" class="w-full text-left px-4 py-3 rounded-2xl hover:bg-orange-100 flex items-center gap-3">
-        <span class="text-xl">📅</span> Programação & FAQ
+        <span class="text-xl"></span> Programação & FAQ
       </button>
       <button onclick="showPage('galeria'); toggleMobileMenu()" class="w-full text-left px-4 py-3 rounded-2xl hover:bg-orange-100 flex items-center gap-3">
-        <span class="text-xl">🖼️</span> Galeria de Fotos
+        <span class="text-xl"></span> Galeria de Fotos
       </button>
       <button onclick="showPage('instagram'); toggleMobileMenu()" class="w-full text-left px-4 py-3 rounded-2xl hover:bg-pink-100 text-pink-600 flex items-center gap-3">
-        <span class="text-xl">📸</span> Feed do Instagram
+        <span class="text-xl"></span> Feed do Instagram
       </button>
       <button onclick="showPage('ingressos'); toggleMobileMenu()" class="w-full text-left px-4 py-3.5 rounded-2xl bg-brand-orange text-white flex items-center gap-3 shadow-md mt-4">
-        <span class="text-xl">🎟️</span> Comprar Ingressos
+        <span class="text-xl"></span> Comprar Ingressos
       </button>
     </nav>
 
@@ -224,10 +224,10 @@
 
           <div class="pt-2 flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
             <button onclick="showPage('ingressos')" class="bg-brand-orange hover:bg-brand-orange-dark text-white font-heading text-base font-bold px-8 py-4 rounded-2xl shadow-lg hover:shadow-orange-200 transition transform hover:-translate-y-1 text-center flex items-center justify-center gap-2">
-              Garantir Meu Ingresso 🎟️
+              Garantir Meu Ingresso!
             </button>
             <button onclick="showPage('programacao')" class="bg-white border-2 border-orange-200 hover:border-brand-orange text-brand-title font-heading text-base font-bold px-6 py-4 rounded-2xl shadow-sm transition text-center">
-              Ver Programação 📅
+              Ver Programação
             </button>
           </div>
         </div>
@@ -236,11 +236,6 @@
         <div class="md:col-span-5 flex justify-center mt-4 md:mt-0">
           <div class="bg-white p-6 rounded-[2.5rem] border-4 border-orange-300 shadow-xl max-w-xs w-full transform -rotate-3 hover:rotate-0 transition duration-500 tape-effect animate-float-card relative overflow-hidden">
             
-            <!-- Elementos decorativos estilo confete -->
-            <div class="absolute top-2 left-3 text-lg animate-wiggle">⭐</div>
-            <div class="absolute top-3 right-4 text-lg">🎈</div>
-            <div class="absolute bottom-3 left-4 text-sm">🎨</div>
-
             <!-- Fundo Colorido Gradiente com Ursinho Animado -->
             <div class="bg-gradient-to-b from-amber-100 via-orange-100 to-amber-200 rounded-2xl p-6 text-center border-2 border-dashed border-orange-300 relative">
               <div class="text-7xl mb-2 inline-block animate-wiggle transform hover:scale-110 transition duration-300 cursor-pointer">
@@ -270,7 +265,7 @@
 
         <div class="grid gap-6 md:grid-cols-3">
           <div class="bg-amber-100/80 rounded-3xl p-6 border-3 border-orange-200 shadow-sm hover:shadow-md transition">
-            <div class="text-4xl mb-3">🩺🎨</div>
+            <div class="text-4xl mb-3">🩺</div>
             <h3 class="font-heading text-xl font-bold text-brand-title mb-2">Saúde Infantil</h3>
             <p class="text-xs text-amber-900/80 leading-relaxed">
               Atividades educativas e práticas de bem-estar de forma lúdica e acolhedora, envolvendo cursos da área da saúde.
@@ -278,7 +273,7 @@
           </div>
 
           <div class="bg-orange-100/80 rounded-3xl p-6 border-3 border-orange-200 shadow-sm hover:shadow-md transition">
-            <div class="text-4xl mb-3">🤝💛</div>
+            <div class="text-4xl mb-3">💛</div>
             <h3 class="font-heading text-xl font-bold text-brand-title mb-2">Assistência Social</h3>
             <p class="text-xs text-amber-900/80 leading-relaxed">
               Acolhimento com escuta qualificada para as famílias, promovendo a cidadania, direitos sociais e fortalecimento comunitário.
@@ -286,7 +281,7 @@
           </div>
 
           <div class="bg-amber-100/80 rounded-3xl p-6 border-3 border-orange-200 shadow-sm hover:shadow-md transition">
-            <div class="text-4xl mb-3">🏛️🌟</div>
+            <div class="text-4xl mb-3">🏛️</div>
             <h3 class="font-heading text-xl font-bold text-brand-title mb-2">Parceria Interinstitucional</h3>
             <p class="text-xs text-amber-900/80 leading-relaxed">
               Estudantes e professores da UFV e Univiçosa trabalhando juntos pela transformação social em Viçosa e região.
@@ -301,7 +296,7 @@
       <section class="max-w-4xl mx-auto px-4 py-10">
         <div class="text-center mb-10">
           <span class="bg-orange-100 text-brand-title font-bold text-xs px-4 py-1.5 rounded-full uppercase tracking-wider border border-orange-200">
-            📖 Nossa Trajetória
+             Nossa Trajetória
           </span>
           <h2 class="text-3xl md:text-5xl font-extrabold text-brand-title font-heading mt-3">Uma Década de História</h2>
           <p class="text-amber-900/70 text-sm mt-2 max-w-xl mx-auto">
@@ -312,7 +307,7 @@
         <div class="bg-white rounded-3xl p-6 md:p-10 border-4 border-orange-200 shadow-md space-y-8">
           <div class="flex items-start gap-4">
             <div class="w-12 h-12 bg-orange-100 rounded-2xl flex items-center justify-center text-2xl font-bold text-brand-orange shrink-0">
-              🌱
+              
             </div>
             <div>
               <h3 class="font-heading font-bold text-xl text-brand-title">O Início de Tudo</h3>
@@ -324,7 +319,7 @@
 
           <div class="flex items-start gap-4 border-t border-orange-100 pt-6">
             <div class="w-12 h-12 bg-amber-100 rounded-2xl flex items-center justify-center text-2xl font-bold text-brand-orange shrink-0">
-              🤝
+              
             </div>
             <div>
               <h3 class="font-heading font-bold text-xl text-brand-title">A Parceria UFV & Univiçosa</h3>
@@ -336,7 +331,7 @@
 
           <div class="flex items-start gap-4 border-t border-orange-100 pt-6">
             <div class="w-12 h-12 bg-pink-100 rounded-2xl flex items-center justify-center text-2xl font-bold text-pink-600 shrink-0">
-              💛
+              
             </div>
             <div>
               <h3 class="font-heading font-bold text-xl text-brand-title">Saúde e Assistência Social Integradas</h3>
@@ -354,7 +349,7 @@
       <section class="max-w-4xl mx-auto px-4 py-10">
         <div class="text-center mb-8">
           <span class="bg-amber-100 text-brand-title font-bold text-xs px-4 py-1.5 rounded-full uppercase tracking-wider border border-orange-200">
-            📅 Cronograma do Evento
+             Cronograma do Evento:
           </span>
           <h2 class="text-3xl md:text-5xl font-extrabold text-brand-title font-heading mt-3">PROGRAMAÇÃO</h2>
           <p class="text-amber-900/70 text-xs md:text-sm mt-1">Selecione o dia para ver as atividades planejadas.</p>
@@ -363,27 +358,21 @@
         <!-- CONTAINER DA PROGRAMAÇÃO ESTILO REFERÊNCIA -->
         <div class="bg-white rounded-3xl border-4 border-orange-200 shadow-xl overflow-hidden mb-12">
           
-          <!-- Abas dos Dias da Semana -->
+          <!-- Abas das horas -->
           <div class="p-4 bg-amber-50/80 border-b-2 border-orange-100 flex flex-wrap justify-center gap-2 md:gap-4">
-            <button onclick="setTabDay('terca')" id="tab-terca" class="tab-day-btn px-5 py-2.5 rounded-2xl font-heading font-bold text-xs md:text-sm transition-all shadow-sm bg-brand-orange text-white">
-              18.TERÇA
+            <button onclick="setTabDay('manha')" id="tab-manha" class="tab-day-btn px-5 py-2.5 rounded-2xl font-heading font-bold text-xs md:text-sm transition-all shadow-sm bg-brand-orange text-white">
+              1.MANHÂS
             </button>
-            <button onclick="setTabDay('quarta')" id="tab-quarta" class="tab-day-btn px-5 py-2.5 rounded-2xl font-heading font-bold text-xs md:text-sm transition-all text-amber-900 bg-white hover:bg-orange-100">
-              19.QUARTA
-            </button>
-            <button onclick="setTabDay('quinta')" id="tab-quinta" class="tab-day-btn px-5 py-2.5 rounded-2xl font-heading font-bold text-xs md:text-sm transition-all text-amber-900 bg-white hover:bg-orange-100">
-              20.QUINTA
-            </button>
-            <button onclick="setTabDay('sexta')" id="tab-sexta" class="tab-day-btn px-5 py-2.5 rounded-2xl font-heading font-bold text-xs md:text-sm transition-all text-amber-900 bg-white hover:bg-orange-100">
-              21.SEXTA
+            <button onclick="setTabDay('tarde')" id="tab-tarde" class="tab-day-btn px-5 py-2.5 rounded-2xl font-heading font-bold text-xs md:text-sm transition-all text-amber-900 bg-white hover:bg-orange-100">
+              2.TARDES
             </button>
           </div>
 
           <!-- LISTA DE ATIVIDADES -->
           <div class="p-4 md:p-8">
             
-            <!-- Conteúdo Dia 18 (Terça) -->
-            <div id="day-terca" class="day-schedule-content space-y-4">
+            <!-- Conteúdo Manhãs -->
+            <div id="day-manha" class="day-schedule-content space-y-4">
               <details class="group bg-amber-50/50 rounded-2xl border border-orange-100 p-4 hover:border-orange-300 transition">
                 <summary class="flex justify-between items-center cursor-pointer list-none">
                   <div class="flex items-center gap-4 md:gap-8">
@@ -433,8 +422,8 @@
               </details>
             </div>
 
-            <!-- Conteúdo Dia 19 (Quarta) -->
-            <div id="day-quarta" class="day-schedule-content hidden space-y-4">
+            <!-- Conteúdo Tarde -->
+            <div id="day-tarde" class="day-schedule-content hidden space-y-4">
               <details class="group bg-amber-50/50 rounded-2xl border border-orange-100 p-4 hover:border-orange-300 transition">
                 <summary class="flex justify-between items-center cursor-pointer list-none">
                   <div class="flex items-center gap-4 md:gap-8">
@@ -451,46 +440,6 @@
                 </div>
               </details>
             </div>
-
-            <!-- Conteúdo Dia 20 (Quinta) -->
-            <div id="day-quinta" class="day-schedule-content hidden space-y-4">
-              <details class="group bg-amber-50/50 rounded-2xl border border-orange-100 p-4 hover:border-orange-300 transition">
-                <summary class="flex justify-between items-center cursor-pointer list-none">
-                  <div class="flex items-center gap-4 md:gap-8">
-                    <span class="font-heading font-extrabold text-lg md:text-xl text-brand-orange shrink-0">14:00</span>
-                    <div>
-                      <h4 class="font-heading font-bold text-base md:text-lg text-slate-800 uppercase">OFICINA PRÁTICA: BRINQUEDO TERAPÊUTICO</h4>
-                      <p class="text-xs font-semibold text-amber-900/60 uppercase">ESPAÇO EXTENSÃO UFV</p>
-                    </div>
-                  </div>
-                  <span class="text-brand-orange group-open:rotate-90 transition transform text-xl font-bold">➜</span>
-                </summary>
-                <div class="mt-3 pt-3 border-t border-orange-100 text-xs text-amber-900/80 leading-relaxed">
-                  Atividade hands-on para confecção e aplicação das técnicas de escuta infantil com ursinhos.
-                </div>
-              </details>
-            </div>
-
-            <!-- Conteúdo Dia 21 (Sexta) -->
-            <div id="day-sexta" class="day-schedule-content hidden space-y-4">
-              <details class="group bg-amber-50/50 rounded-2xl border border-orange-100 p-4 hover:border-orange-300 transition">
-                <summary class="flex justify-between items-center cursor-pointer list-none">
-                  <div class="flex items-center gap-4 md:gap-8">
-                    <span class="font-heading font-extrabold text-lg md:text-xl text-brand-orange shrink-0">16:00</span>
-                    <div>
-                      <h4 class="font-heading font-bold text-base md:text-lg text-slate-800 uppercase">ENCERRAMENTO FESTIVO & SOLENIDADE</h4>
-                      <p class="text-xs font-semibold text-amber-900/60 uppercase">CENTRO DE VIVÊNCIA UFV</p>
-                    </div>
-                  </div>
-                  <span class="text-brand-orange group-open:rotate-90 transition transform text-xl font-bold">➜</span>
-                </summary>
-                <div class="mt-3 pt-3 border-t border-orange-100 text-xs text-amber-900/80 leading-relaxed">
-                  Momento cultural, parabéns oficial dos 10 anos do projeto e entrega de certificados.
-                </div>
-              </details>
-            </div>
-
-          </div>
         </div>
 
         <!-- PERGUNTAS FREQUENTES (FAQ) -->
@@ -525,7 +474,7 @@
       <section class="max-w-6xl mx-auto px-4 py-10">
         <div class="text-center mb-10">
           <span class="bg-amber-100 text-brand-title font-bold text-xs px-4 py-1.5 rounded-full uppercase tracking-wider border border-orange-200">
-            🖼️ Recordações
+            Recordações
           </span>
           <h2 class="text-3xl md:text-5xl font-extrabold text-brand-title font-heading mt-3">Galeria de Fotos</h2>
           <p class="text-amber-900/70 text-xs md:text-sm mt-1">Alguns momentos marcantes vividos ao longo desses 10 anos.</p>
@@ -570,7 +519,7 @@
       <section class="max-w-5xl mx-auto px-4 py-10">
         <div class="text-center mb-8">
           <span class="bg-pink-100 text-pink-600 font-bold text-xs px-4 py-1.5 rounded-full uppercase tracking-wider border border-pink-200">
-            📸 Nosso Instagram Ao Vivo
+            Nosso Instagram
           </span>
           <h2 class="text-3xl md:text-5xl font-extrabold text-brand-title font-heading mt-3">Acompanhe Nosso Feed</h2>
           <p class="text-amber-900/70 text-xs md:text-sm mt-1 max-w-lg mx-auto">
@@ -594,7 +543,7 @@
               </div>
             </div>
 
-            <a href="https://instagram.com" target="_blank" class="bg-pink-600 hover:bg-pink-700 text-white font-heading text-xs font-bold px-4 py-2 rounded-xl transition shadow-sm flex items-center gap-1">
+            <a href="https://www.instagram.com/ursinhoufv/" target="_blank" class="bg-pink-600 hover:bg-pink-700 text-white font-heading text-xs font-bold px-4 py-2 rounded-xl transition shadow-sm flex items-center gap-1">
               Seguir no Instagram ➜
             </a>
           </div>
@@ -638,7 +587,7 @@
 
           <div class="mt-6 text-center pt-4 border-t border-pink-100">
             <p class="text-xs text-slate-500">
-              💡 <em>Dica: Para sincronizar as publicações em tempo real do seu perfil oficial, basta colar o código do widget (ex: Elfsight ou Behold) neste espaço.</em>
+              💡 <em>OBS : VOU TENTAR SINCRONIZAR UMA API AQUI.</em>
             </p>
           </div>
 
@@ -685,7 +634,7 @@
               </div>
             </div>
             <button onclick="selecionarIngresso('Comunidade e Profissionais')" class="w-full bg-brand-title hover:bg-brand-brown text-white font-heading font-bold py-3 rounded-xl text-sm transition">
-              Garantir Ingresso 🎟️
+              Garantir Ingresso
             </button>
           </div>
 
@@ -723,7 +672,7 @@
               <input type="email" placeholder="seu@email.com" required class="w-full px-3 py-2 rounded-xl border-2 border-orange-100 focus:border-brand-orange focus:outline-none text-xs">
             </div>
             <button type="submit" class="w-full bg-brand-orange hover:bg-brand-orange-dark text-white font-heading font-bold py-3 rounded-xl text-xs shadow-md transition">
-              Finalizar Pré-Reserva 🎟️
+              Finalizar Compra
             </button>
           </form>
         </div>
@@ -816,7 +765,7 @@
 
       document.getElementById('day-' + dayId).classList.remove('hidden');
     }
-    
+
   </script>
 
 </body>
