@@ -139,13 +139,53 @@
     </div>
   </header>
 
-  <!-- ==================== MENU SIDEBAR MOBILE (LATERIAL) ==================== -->
-<!-- ==================== MENU SIDEBAR MOBILE (HUMANO & INTERATIVO) ==================== -->
+<!-- ==================== HEADER RESPONSIVO ==================== -->
+  <header class="bg-white/95 backdrop-blur-md sticky top-0 z-40 border-b-2 border-orange-200/80 shadow-sm">
+    <div class="max-w-6xl mx-auto px-3 sm:px-4 py-2.5 flex justify-between items-center gap-2">
+      
+      <!-- Logo Principal -->
+      <a href="#" onclick="showPage('home')" class="flex items-center gap-2 shrink-0">
+        <div class="w-9 h-9 sm:w-10 sm:h-10 bg-amber-100 rounded-2xl border-2 border-orange-300 flex items-center justify-center text-xl shadow-sm">
+          🧸
+        </div>
+        <div class="leading-tight">
+          <span class="font-heading font-bold text-base sm:text-lg text-brand-title block">Cuidando do Ursinho</span>
+          <span class="text-[9px] sm:text-xs font-bold text-brand-orange tracking-wider uppercase bg-orange-100 px-2 py-0.5 rounded-full inline-block">UFV & Univiçosa • 10 Anos</span>
+        </div>
+      </a>
+      
+      <!-- Navegação Desktop -->
+      <nav class="hidden lg:flex items-center gap-2 font-heading font-bold text-sm text-amber-900">
+        <button onclick="showPage('home')" class="px-3 py-1.5 rounded-xl hover:bg-orange-100 hover:text-brand-orange transition">🏠 Início</button>
+        <button onclick="showPage('historia')" class="px-3 py-1.5 rounded-xl hover:bg-orange-100 hover:text-brand-orange transition">📖 História</button>
+        <button onclick="showPage('programacao')" class="px-3 py-1.5 rounded-xl hover:bg-orange-100 hover:text-brand-orange transition">📅 Programação & FAQ</button>
+        <button onclick="showPage('galeria')" class="px-3 py-1.5 rounded-xl hover:bg-orange-100 hover:text-brand-orange transition">🖼️ Galeria</button>
+        <button onclick="showPage('instagram')" class="px-3 py-1.5 rounded-xl hover:bg-pink-100 text-pink-600 transition flex items-center gap-1">📸 Feed Instagram</button>
+        <button onclick="showPage('ingressos')" class="ml-2 bg-brand-orange hover:bg-brand-orange-dark text-white px-5 py-2 rounded-2xl font-heading text-base shadow-md transition transform hover:-translate-y-0.5">
+          🎟️ Ingressos
+        </button>
+      </nav>
+
+      <!-- Botão Hambúrguer Mobile -->
+      <div class="lg:hidden flex items-center gap-1.5 shrink-0">
+        <button onclick="showPage('ingressos')" class="bg-brand-orange text-white text-[11px] font-bold px-2.5 py-1.5 rounded-xl font-heading shadow-sm">
+          Ingressos 🎟️
+        </button>
+        <button id="hamburger-btn" onclick="toggleMobileMenu()" class="p-2 bg-amber-100 border-2 border-orange-200 text-brand-title rounded-xl focus:outline-none cursor-pointer">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== MENU SIDEBAR MOBILE ==================== -->
   <div id="mobile-sidebar-backdrop" onclick="toggleMobileMenu()" class="fixed inset-0 bg-amber-950/40 backdrop-blur-sm z-50 hidden transition-opacity duration-300"></div>
   
   <aside id="mobile-sidebar" class="fixed top-0 right-0 w-80 h-full bg-[#FFFDF5] z-50 shadow-2xl transform translate-x-full transition-transform duration-300 ease-out flex flex-col border-l-4 border-orange-300 rounded-l-[2rem]">
     
-    <!-- Cabeçalho Acolhedor -->
+    <!-- Cabeçalho -->
     <div class="p-5 border-b-2 border-orange-100 flex justify-between items-center bg-amber-100/70 rounded-tl-[1.8rem]">
       <div class="flex items-center gap-2.5">
         <div class="w-9 h-9 bg-white rounded-xl border border-orange-200 flex items-center justify-center text-xl shadow-sm">
@@ -156,45 +196,56 @@
           <span class="text-[10px] text-amber-900/60 font-semibold">UFV & Univiçosa</span>
         </div>
       </div>
-      <button onclick="toggleMobileMenu()" class="w-8 h-8 bg-white/80 hover:bg-white text-slate-400 hover:text-brand-title font-bold text-lg rounded-full flex items-center justify-center transition shadow-sm">&times;</button>
+      <button onclick="toggleMobileMenu()" class="w-8 h-8 bg-white/80 text-slate-400 hover:text-brand-title font-bold text-lg rounded-full flex items-center justify-center transition shadow-sm cursor-pointer">&times;</button>
     </div>
 
-    <!-- Navegação com Destaque de Item Ativo -->
+    <!-- Links com Seleção Ativa -->
     <nav class="flex-1 px-4 py-6 space-y-2 font-heading font-bold text-amber-950 overflow-y-auto">
       
-      <button id="nav-btn-home" onclick="navToPage('home')" class="nav-mobile-item w-full text-left px-4 py-3 rounded-2xl flex items-center justify-between transition-all duration-200 hover:bg-orange-100/80">
-        <span class="flex items-center gap-3"><span class="text-xl"></span> Início</span>
+      <button id="nav-btn-home" onclick="navToPage('home')" class="nav-mobile-item w-full text-left px-4 py-3 rounded-2xl flex items-center justify-between transition-all duration-200 hover:bg-orange-100/80 cursor-pointer">
+        <span class="flex items-center gap-3"><span class="text-xl">🏠</span> Início</span>
         <span class="active-indicator hidden text-brand-orange text-sm font-extrabold">●</span>
       </button>
 
-      <button id="nav-btn-historia" onclick="navToPage('historia')" class="nav-mobile-item w-full text-left px-4 py-3 rounded-2xl flex items-center justify-between transition-all duration-200 hover:bg-orange-100/80">
-        <span class="flex items-center gap-3"><span class="text-xl"></span> Nossa História</span>
+      <button id="nav-btn-historia" onclick="navToPage('historia')" class="nav-mobile-item w-full text-left px-4 py-3 rounded-2xl flex items-center justify-between transition-all duration-200 hover:bg-orange-100/80 cursor-pointer">
+        <span class="flex items-center gap-3"><span class="text-xl">📖</span> Nossa História</span>
         <span class="active-indicator hidden text-brand-orange text-sm font-extrabold">●</span>
       </button>
 
-      <button id="nav-btn-programacao" onclick="navToPage('programacao')" class="nav-mobile-item w-full text-left px-4 py-3 rounded-2xl flex items-center justify-between transition-all duration-200 hover:bg-orange-100/80">
-        <span class="flex items-center gap-3"><span class="text-xl"></span> Programação & FAQ</span>
+      <button id="nav-btn-programacao" onclick="navToPage('programacao')" class="nav-mobile-item w-full text-left px-4 py-3 rounded-2xl flex items-center justify-between transition-all duration-200 hover:bg-orange-100/80 cursor-pointer">
+        <span class="flex items-center gap-3"><span class="text-xl">📅</span> Programação & FAQ</span>
         <span class="active-indicator hidden text-brand-orange text-sm font-extrabold">●</span>
       </button>
 
-      <button id="nav-btn-galeria" onclick="navToPage('galeria')" class="nav-mobile-item w-full text-left px-4 py-3 rounded-2xl flex items-center justify-between transition-all duration-200 hover:bg-orange-100/80">
-        <span class="flex items-center gap-3"><span class="text-xl"></span> Galeria de Fotos</span>
+      <button id="nav-btn-galeria" onclick="navToPage('galeria')" class="nav-mobile-item w-full text-left px-4 py-3 rounded-2xl flex items-center justify-between transition-all duration-200 hover:bg-orange-100/80 cursor-pointer">
+        <span class="flex items-center gap-3"><span class="text-xl">🖼️</span> Galeria de Fotos</span>
         <span class="active-indicator hidden text-brand-orange text-sm font-extrabold">●</span>
       </button>
 
-      <button id="nav-btn-instagram" onclick="navToPage('instagram')" class="nav-mobile-item w-full text-left px-4 py-3 rounded-2xl flex items-center justify-between transition-all duration-200 hover:bg-pink-100/80 text-pink-600">
-        <span class="flex items-center gap-3"><span class="text-xl"></span> Feed do Instagram</span>
+      <button id="nav-btn-instagram" onclick="navToPage('instagram')" class="nav-mobile-item w-full text-left px-4 py-3 rounded-2xl flex items-center justify-between transition-all duration-200 hover:bg-pink-100/80 text-pink-600 cursor-pointer">
+        <span class="flex items-center gap-3"><span class="text-xl">📸</span> Feed do Instagram</span>
         <span class="active-indicator hidden text-pink-600 text-sm font-extrabold">●</span>
       </button>
 
       <div class="pt-2">
-        <button id="nav-btn-ingressos" onclick="navToPage('ingressos')" class="nav-mobile-item w-full text-left px-4 py-3.5 rounded-2xl bg-brand-orange hover:bg-brand-orange-dark text-white flex items-center justify-between shadow-md transition transform active:scale-95">
-          <span class="flex items-center gap-3"><span class="text-xl"></span> Comprar Ingressos</span>
+        <button id="nav-btn-ingressos" onclick="navToPage('ingressos')" class="nav-mobile-item w-full text-left px-4 py-3.5 rounded-2xl bg-brand-orange text-white flex items-center justify-between shadow-md transition cursor-pointer">
+          <span class="flex items-center gap-3"><span class="text-xl">🎟️</span> Comprar Ingressos</span>
           <span class="text-white/80 text-xs">➔</span>
         </button>
       </div>
 
     </nav>
+
+    <!-- Rodapé -->
+    <div class="p-4 bg-amber-100/60 border-t-2 border-orange-100 text-center rounded-bl-[1.8rem]">
+      <div class="inline-flex items-center gap-1.5 bg-white/80 px-3 py-1 rounded-full border border-orange-200/80 shadow-2xs mb-1">
+        <span class="text-xs">✨</span>
+        <span class="text-xs text-brand-title font-bold">10 Anos de Afeto</span>
+      </div>
+      <p class="text-[11px] text-amber-900/70 font-semibold">Saúde & Assistência Social</p>
+    </div>
+
+  </aside>
 
     <!-- Rodapé Lúdico da Sidebar -->
     <div class="p-4 bg-amber-100/60 border-t-2 border-orange-100 text-center rounded-bl-[1.8rem]">
@@ -723,7 +774,32 @@
   </footer>
 
   <!-- ==================== SCRIPTS JS ==================== -->
-  <script>
+<script>
+    // Função para abrir e fechar a Sidebar
+    function toggleMobileMenu() {
+      const sidebar = document.getElementById('mobile-sidebar');
+      const backdrop = document.getElementById('mobile-sidebar-backdrop');
+      
+      if (!sidebar || !backdrop) return;
+
+      const isHidden = sidebar.classList.contains('translate-x-full');
+
+      if (isHidden) {
+        sidebar.classList.remove('translate-x-full');
+        backdrop.classList.remove('hidden');
+      } else {
+        sidebar.classList.add('translate-x-full');
+        backdrop.classList.add('hidden');
+      }
+    }
+
+    // Função para trocar de página e fechar a sidebar
+    function navToPage(pageId) {
+      showPage(pageId);
+      toggleMobileMenu();
+    }
+
+    // Gerenciador do SPA
     function showPage(pageId) {
       const pages = document.querySelectorAll('.page-content');
       pages.forEach(page => page.classList.add('hidden'));
@@ -732,30 +808,51 @@
       if (targetPage) {
         targetPage.classList.remove('hidden');
       }
+
+      // Destaque do item selecionado na sidebar
+      const navItems = document.querySelectorAll('.nav-mobile-item');
+      navItems.forEach(item => {
+        if (item.id !== 'nav-btn-ingressos') {
+          item.classList.remove('bg-orange-200/80', 'text-brand-title', 'border-l-4', 'border-brand-orange');
+        }
+        const indicator = item.querySelector('.active-indicator');
+        if (indicator) indicator.classList.add('hidden');
+      });
+
+      const activeBtn = document.getElementById('nav-btn-' + pageId);
+      if (activeBtn && pageId !== 'ingressos') {
+        activeBtn.classList.add('bg-orange-200/80', 'text-brand-title', 'border-l-4', 'border-brand-orange');
+        const indicator = activeBtn.querySelector('.active-indicator');
+        if (indicator) indicator.classList.remove('hidden');
+      }
+
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    function toggleMobileMenu() {
-      const sidebar = document.getElementById('mobile-sidebar');
-      const backdrop = document.getElementById('mobile-sidebar-backdrop');
-      
-      const isOpen = !sidebar.classList.contains('translate-x-full');
-      
-      if (isOpen) {
-        sidebar.classList.add('translate-x-full');
-        backdrop.classList.add('hidden');
-      } else {
-        sidebar.classList.remove('translate-x-full');
-        backdrop.classList.remove('hidden');
+    // Alternar abas da programação
+    function setTabDay(dayId) {
+      const allTabs = document.querySelectorAll('.tab-day-btn');
+      allTabs.forEach(tab => {
+        tab.classList.remove('bg-brand-orange', 'text-white');
+        tab.classList.add('bg-white', 'text-amber-900', 'hover:bg-orange-100');
+      });
+
+      const activeTab = document.getElementById('tab-' + dayId);
+      if (activeTab) {
+        activeTab.classList.add('bg-brand-orange', 'text-white');
+        activeTab.classList.remove('bg-white', 'text-amber-900', 'hover:bg-orange-100');
+      }
+
+      const allDays = document.querySelectorAll('.day-schedule-content');
+      allDays.forEach(day => day.classList.add('hidden'));
+
+      const activeDayContent = document.getElementById('day-' + dayId);
+      if (activeDayContent) {
+        activeDayContent.classList.remove('hidden');
       }
     }
 
-    function selecionarIngresso(tipo) {
-      document.getElementById('form-compra').classList.remove('hidden');
-      document.getElementById('tipo-ingresso-nome').innerText = tipo;
-      document.getElementById('form-compra').scrollIntoView({ behavior: 'smooth' });
-    }
-
+    // Contagem Regressiva
     const eventDate = new Date();
     eventDate.setDate(eventDate.getDate() + 30);
 
@@ -770,78 +867,27 @@
       const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-      document.getElementById('cd-days').innerText = String(days).padStart(2, '0');
-      document.getElementById('cd-hours').innerText = String(hours).padStart(2, '0');
-      document.getElementById('cd-minutes').innerText = String(minutes).padStart(2, '0');
-      document.getElementById('cd-seconds').innerText = String(seconds).padStart(2, '0');
+      const dEl = document.getElementById('cd-days');
+      if (dEl) dEl.innerText = String(days).padStart(2, '0');
+      
+      const hEl = document.getElementById('cd-hours');
+      if (hEl) hEl.innerText = String(hours).padStart(2, '0');
+      
+      const mEl = document.getElementById('cd-minutes');
+      if (mEl) mEl.innerText = String(minutes).padStart(2, '0');
+      
+      const sEl = document.getElementById('cd-seconds');
+      if (sEl) sEl.innerText = String(seconds).padStart(2, '0');
     }
 
     setInterval(updateCountdown, 1000);
     updateCountdown();
 
-    // Alternar Abas da Programação por Dia
-    function setTabDay(dayId) {
-      const allTabs = document.querySelectorAll('.tab-day-btn');
-      allTabs.forEach(tab => {
-        tab.classList.remove('bg-brand-orange', 'text-white');
-        tab.classList.add('bg-white', 'text-amber-900', 'hover:bg-orange-100');
-      });
-
-      const activeTab = document.getElementById('tab-' + dayId);
-      activeTab.classList.add('bg-brand-orange', 'text-white');
-      activeTab.classList.remove('bg-white', 'text-amber-900', 'hover:bg-orange-100');
-
-      const allDays = document.querySelectorAll('.day-schedule-content');
-      allDays.forEach(day => day.classList.add('hidden'));
-
-      document.getElementById('day-' + dayId).classList.remove('hidden');
-
-      // Função para navegar e destacar visualmente a página selecionada na Sidebar
-    function navToPage(pageId) {
-      showPage(pageId);
-      toggleMobileMenu();
-    }
-
-    function showPage(pageId) {
-      // 1. Ocultar todas as páginas
-      const pages = document.querySelectorAll('.page-content');
-      pages.forEach(page => page.classList.add('hidden'));
-
-      // 2. Exibir a página selecionada
-      const targetPage = document.getElementById('page-' + pageId);
-      if (targetPage) {
-        targetPage.classList.remove('hidden');
-      }
-
-      // 3. Atualizar estilos de item ativo no menu mobile
-      const navItems = document.querySelectorAll('.nav-mobile-item');
-      navItems.forEach(item => {
-        // Reseta estados anteriores
-        if (item.id !== 'nav-btn-ingressos') {
-          item.classList.remove('bg-orange-200/80', 'text-brand-title', 'shadow-xs', 'border-l-4', 'border-brand-orange');
-        }
-        const indicator = item.querySelector('.active-indicator');
-        if (indicator) indicator.classList.add('hidden');
-      });
-
-      // Aplica destaque no botão atual
-      const activeBtn = document.getElementById('nav-btn-' + pageId);
-      if (activeBtn && pageId !== 'ingressos') {
-        activeBtn.classList.add('bg-orange-200/80', 'text-brand-title', 'shadow-xs', 'border-l-4', 'border-brand-orange');
-        const indicator = activeBtn.querySelector('.active-indicator');
-        if (indicator) indicator.classList.remove('hidden');
-      }
-
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    // Marca a Home como ativa ao carregar a página inicial
+    // Inicializa marcando a página "Início" como ativa ao carregar
     document.addEventListener('DOMContentLoaded', () => {
       showPage('home');
     });
     
-    }
-
   </script>
 
 </body>
